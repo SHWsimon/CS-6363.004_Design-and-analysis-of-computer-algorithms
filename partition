@@ -1,4 +1,4 @@
-partition(A, p, r)
+partition(A, p, r) // Partition A [ p..r ] using A [ r ] as pivot.
   i=p-1;
   for j ← p to r−1 do 
     if A[j]≤A[r] then
