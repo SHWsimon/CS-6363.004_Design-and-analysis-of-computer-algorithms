@@ -1,0 +1,31 @@
+//common shortest path
+Relax(u, v)
+  if v.dis>u.dis+w(u, v)
+    v.dis=u.dis+w(u, v)
+    v.parent=u
+    return true
+  else
+    return false
+    
+Initialization(S)
+  for u=V{n}
+    u.dis=infinity
+    u.parent=null
+  s.dis=0
+
+//Bellman-Ford: O(|E|*|V|)
+Bellman-Ford(G, S)
+  Initialization(S)
+  Q={S}
+  s.count=1
+  while Q !=empty
+    u=Q.remove()
+    for (u, v)=all Edge out of v
+      if Relax(u, v)
+        Q.add(v)
+        v.count++
+  
+  for u=V{n}
+    if u.count=|V|
+      "G has negative cycle"
+  return
