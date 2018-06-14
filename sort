@@ -1,0 +1,7 @@
++//compute x^n
++power(x, n) 
++  if n=0 
++    return 1;
++  else
++    p=power(x*x, n/2);
++    return odd(n)? p*x: p;
