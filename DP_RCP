@@ -1,0 +1,10 @@
+RCP[n] - 0, n=0
+       - max(Pi+RCP(n-i)), 1<=i<=n
+    
+RCP[0]=0
+for l=0 to n
+  q=o
+  for i=0 to l
+    q=max(q, p[i]+RCP[l-i])
+  RCP[l]=q
+return RCP[n]
