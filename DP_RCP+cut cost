@@ -1,5 +1,5 @@
 RCP[n] - 0, n=0
-       - max(P[n], Pi+RCP[n-i]-cost[n]), 1<=i<=n
+       - max(P[n], P[i]+RCP[n-i]-cost[n]), 1<=i<=n
            no cut, cut 
 
 int[] RCP=new int[n+1]
