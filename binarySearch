@@ -1,3 +1,4 @@
+//way1
 binarySearch(A, x)
   binarySearch(A, 0, n-1, x)
 
@@ -12,3 +13,18 @@ binarySearch(A, p, r, x)
         return q;
      else
         return binarySearch(A, q+1, r, x);
+        
+//way2
+binarySearch(A,x) //precondition: A[i-1]<=A[i]
+  left=0;
+  right=A.length-1;
+  while(left<=right)
+     mid=(left+right)/2;
+     if(x<A[mid])
+        right=mid-1;
+     else if(x==A[mid])
+        return mid;
+     else
+        left=mid+1;
+  return -1;
+        
