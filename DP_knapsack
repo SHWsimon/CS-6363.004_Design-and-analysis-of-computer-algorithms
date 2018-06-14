@@ -1,0 +1,17 @@
+k[i][wight] - 0, i=0 or wight=0
+            - k[i-1][wight], not take ith, weight<w[i]
+            - max(val[i]+k[i-1][wight-w[i]], k[i-1][wight]), wight>=w[i]
+(i: # of item, weight: total weight)
+
+knapsack(n, weight)
+  k[n+1][weight+1]
+  
+  for i=0 to n
+    for j=0 to weight
+      if i=0 or j=0
+        k[i][j]=0
+      else if weight<=w[i]
+        k[i][j]=max(val[i]+k[i-1][wight-w[i]], k[i-1][j])
+      else
+        k[i][j]=k[i-1][j]
+  return k[n][weight]        
