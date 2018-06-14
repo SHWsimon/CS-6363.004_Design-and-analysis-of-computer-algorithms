@@ -1,0 +1,6 @@
+linearSearch( A, x)
+  i=0;
+  while(i<A.length)
+    if(A[i]==x)
+      return i;
+  return -1;  
