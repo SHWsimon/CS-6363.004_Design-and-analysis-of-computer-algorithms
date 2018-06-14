@@ -1,5 +1,5 @@
 RCP[n] - 0, n=0
-       - max(Pi+RCP(n-i)), 1<=i<=n
+       - max(Pi+RCP[n-i]), 1<=i<=n
     
 RCP[0]=0
 for l=0 to n
