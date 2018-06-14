@@ -1,0 +1,14 @@
+binarySearch(A, x)
+  binarySearch(A, 0, n-1, x)
+
+binarySearch(A, p, r, x)
+  if(p>r)
+    return -1;
+  else
+     q=(p+r)/2;
+     if(x<A[q])
+        return binarySearch(A, p, q-1, x);
+     else if(x==A[q])
+        return q;
+     else
+        return binarySearch(A, q+1, r, x);
