@@ -3,7 +3,7 @@ RCP[n] - 0, n=0
     
 RCP[0]=0
 for l=0 to n
-  q=o
+  q=0
   for i=0 to l
     q=max(q, p[i]+RCP[l-i])
   RCP[l]=q
