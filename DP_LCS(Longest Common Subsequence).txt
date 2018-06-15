@@ -1,0 +1,43 @@
+LCS(Longest Common Subsequence)
+LCS[i][j] - 0, i=0 or j=0
+          - 1+LCS[i-1][j-1], x[i]=y[j]
+          - max(LCS[i-1][j], LCS[i][j-1]), x[i]!=y[j]
+(i:x[1,...,m] index, j:y[1,...,n] index)
+
+LCS(x,y)
+  LCS[m][n]
+  //base
+  for i=0 to m
+    LCS[i][0]=0
+  for j=0 to n
+    LCS[0][j]=0
+  
+  //step
+  for i=0 to m
+    for j=0 to m
+      if x[i]=y[j]
+        LCS[i][j]=1+LCS[i-1][j-1]
+        B[i][j]="\"
+      else
+        LCS[i][j]=LCS[i-1][j]
+        B[i][j]="-"
+        if LCS[i][j]<LCS[i][j-1]
+          LCS[i][j]=LCS[i][j-1]
+          B[i][j]="|"
+  return LCS, B
+
+//Output the result
+Output(LCS, B)
+  k=LCS[m][n]
+  i=m
+  j=n
+  Z={}
+  while k>0
+    if B[i][j]="\"
+      z.add(x[i])
+      k--, i--, j--
+    if B[i][j]="-"
+      j--
+    if B[i][j]="|"
+      i-- 
+  return Z

@@ -1,0 +1,26 @@
+LPS(longest palindromic subsequence)
+LPS[i][j] - 0, j-i+1<=0
+          - 1, j-i+1=1
+          - 2+LPS[i-1][j-1], A[i]=A[j]
+          - max(LPS[i-1][j], LPS[i][j-1]), A[i]!=A[j]
+(i: start point, j:end point)
+
+
+LPS(A)
+  LPS[n][n]=0
+  //base
+  for i=0 to n
+    LPS[i][i]=1
+    
+  //step
+  for l=2 to n
+    for i=0 to n-l
+      j=i+l-1
+      if A[i]=A[j] && l==2
+        LPS[i][j]=2
+      else if A[i]=A[j]
+        LPS[i][j]=2+LPS[i-1][j-1]
+      else
+        LPS[i][j]=max(LPS[i-1][j], LPS[i][j-1])
+        
+return LPS[0][n-1]        

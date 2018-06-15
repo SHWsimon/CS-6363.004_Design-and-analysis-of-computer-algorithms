@@ -1,0 +1,48 @@
+DFS for DAG(Directed acycle graph): O(|V|+|E|)
+
+//step1: find topology order
+DFS(V)
+  //V{n} is node set
+  //Initialization
+  for u=V{n} 
+    u.parent=null
+    u.color=white
+  t=0, toporder={}, topnumber=|V|
+  
+  //main
+  for u=V{n}
+    if u.color==white
+      DFS_visit(u)
+      
+DFS_visit(u)
+  u.color=gray
+  for v=u.adj
+    if v.color=white
+      v.parent=u
+      DFS_visit(v)
+  toporder[topnumber]=u
+  u.top=topnumber--
+  u.color=black
+  
+//common shortest path
+Relax(u, v)
+  if v.dis>u.dis+w(u, v)
+    v.dis=u.dis+w(u, v)
+    v.parent=u
+    return true
+  else
+    return false
+    
+Initialization(S)
+  for u=V{n}
+    u.dis=infinity
+    u.parent=null
+  s.dis=0
+  
+//step2: use topology order to find the shortest path for DAG
+DAG_shortest_path(G, S)
+  Initialization(S)
+  for u=V in toporder
+    for (u, v)= all Edge out of u
+      Relax(u, v)
+

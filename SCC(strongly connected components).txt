@@ -1,0 +1,45 @@
+//SCC(strongly connected components)
+1. Run DFS(G) to get a list of vertices, ordering by decreasing finish time
+2. Run DFS(G^R) using the list obtained from forst DFS to order the nodes 
+3. Each tree of 2nd DFS connects nodes of an SCC
+
+//time
+time()
+  return t++
+
+//Reset
+Reset()
+  for u=V
+    u.color=white
+  t=0
+  cno=0
+
+//DFS_Visit
+DFS_Visit(G, u, cno)
+  u.color=gray
+  u.dis=time()
+  u.cno=cno
+  
+  for v=u.adj
+    if v.color=white
+      v.parent=u
+      DFS_Visit(G, v, cno)
+  u.fin=time()
+  u.color=black
+
+//SCC
+SCC(G)
+  Reset() //all white nodes
+  
+  //step1
+  for u=V
+    if u.color=white
+      DFS_Visit(G, u, 0)
+  //step2
+  list= sort by decreaing u.fin
+  Reset()
+  for u=V in list
+    if u.color=white
+      DFS_Visit(G^R, u, cno++)
+
+

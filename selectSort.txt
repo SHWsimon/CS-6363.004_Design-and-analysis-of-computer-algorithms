@@ -1,0 +1,28 @@
+select  ( A, p, r, k ): // Find kth smallest element of A [ p..r ] 
+  if r − p < 80 then
+    insertionSort ( A, p, r )
+    return A[p+k−1]
+  choosePivot( A, p, r ) //Chooseapivotelementandmoveitto A[r]
+  q ← partition ( A, p, r )
+  left ← q−p
+  right ← r−q 
+  if left ≥ k 
+    returnselect( A, p, q−1, k ) 
+  elseif left+1 = k 
+    return A[q] 
+  else
+    returnselect( A, q+1, r, k−(left+1) )
+    
+randomized choosePivot ( A, p, r ): 
+   Choose i ∈ [p..r], uniformly at random 
+   Exchange A[i] ↔ A[r]
+   
+deterministic choosePivot ( A, p, r ): 
+  for k ← 0 to n/5 − 1 do
+    insertionSort( A, p+5k, p+5k+4 ) 
+    B [ k ] ← A [ p + 5k + 2 ]
+  m ← select( B, 0, n/5 − 1, n/10 ) //Findmedianof B
+  i←search( A, p, r, m ) //Findindexofmin A[p..r] usinglinearsearch 
+  Exchange A[i] ↔ A[r]
+
+

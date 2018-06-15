@@ -1,0 +1,33 @@
+ASP[i]  - ASP[i-1], not take act
+        - ASP[j]+V[i], take act, Fj<=Si
+(i:number of act)
+
+ASP(n, V)
+  //base
+  ASP[0]=0
+  
+  for i=0 to n
+    ASP[i]=ASP[i-1]
+    Use[i]=False
+    j=i-1
+    while Fj>Si
+      j--
+      
+    prev[i]=j
+    if ASP[i]<ASP[j]+V[i]
+      ASP[i]=ASP[j]+V[i]
+      Use[i]=True
+return ASP, Use, prev
+
+
+Output all the act //act: A[1,....n]
+  list=null
+  curr=n
+  while curr>0
+    if Use[curr]
+      list.add(A[curr])
+      curr=prev[curr]
+    else
+      curr--
+return list      
+

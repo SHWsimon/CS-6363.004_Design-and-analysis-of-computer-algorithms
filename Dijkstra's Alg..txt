@@ -1,0 +1,18 @@
+//common shortest path
+Relax(u, v)
+  if v.dis>u.dis+w(u, v)
+    v.dis=u.dis+w(u, v)
+    v.parent=u
+    return true
+  else
+    return false
+
+//Dijkstra's Alg.
+  Initialize-single-source(G, s) //u.d=infinity, u.parent=null
+  S={}
+  Q=V(G) //priority queue
+  while Q !=empty
+    u=Extra-Min(Q)
+    S=SU{u}
+    for each vertex v=u.adj
+      Relax(u, v)
