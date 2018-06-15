@@ -14,6 +14,11 @@ Initialization(S)
   s.dis=0
 
 //Bellman-Ford: O(|E|*|V|)
+D^k(v)=length of a shortest path from s to u that uses at most k edges
+D^k(v)= - 0, if v=s, k=0
+        - infinity, if v!=s, k=0
+        - min(D^(k-1)(v), D^(k-1)(u)+w(u, v), k>0 //w(u, v): weight of the edge from u to v
+        
 Bellman-Ford(G, S)
   Initialization(S)
   for k=1 to |V|-1
