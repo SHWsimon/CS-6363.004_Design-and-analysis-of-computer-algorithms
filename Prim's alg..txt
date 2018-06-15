@@ -1,0 +1,21 @@
+//Prim's alg.
+Prims(V, E)
+  //Initialization
+  for u=V
+    u.d=infinity
+    u.parent=null
+  s.d=0, S={}, wmst=0
+
+  //u.d=w(u, u.parent), u=V-S
+  create priority Q, u=V: Q.add(u)
+
+  while Q!=0
+    u=Q.ExtractMin()
+    S=SU{u}
+    wmst=wmst+u.d
+    for v=u.adj
+      if v=Q && w(u, v)<v.d
+        v.d=w(u, v)
+        v.parent=u
+
+

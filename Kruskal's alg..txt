@@ -1,0 +1,36 @@
+//MakeSet
+MakeSet(x)
+  x.rep=x  //parent
+  x.rank=0 //height
+
+//Find
+Find(x)
+  if x!=x.rep
+    x.rep=Find(x.rep)
+
+  return x.rep  
+
+//Union
+Union(x, y)
+  if x.rank>y.rank
+    y.rep=x
+  else if x.rank<y.rank
+    x.rep=y
+  else //x.rank=y.rank
+    x.rep=y
+    y.rank++
+
+//Kruskal's alg.
+Kruskals(V, E)
+  for u=V
+    MakeSet(u)
+  wmst=0
+  F={}
+  sort(Edge)
+  for edge e=(u, v) in sort order
+    x=Find(u)
+    y=Find(v)
+    if x!=y
+      F=FU{e}
+      Union(x, y)
+      wmst=wmst+w(u, v)
