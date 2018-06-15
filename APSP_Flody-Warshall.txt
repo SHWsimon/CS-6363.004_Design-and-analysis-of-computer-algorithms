@@ -16,3 +16,4 @@ D^k(u, v)= - w(u, v), if k=0
     for u=V
       for v=V 
         D[u][v]=min(D[u][v]. D[u][k]+D[k][v])
+        
