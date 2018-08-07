@@ -7,11 +7,11 @@ select  ( A, p, r, k ): // Find kth smallest element of A [ p..r ]
   left ← q−p
   right ← r−q 
   if left ≥ k 
-    returnselect( A, p, q−1, k ) 
+    return select( A, p, q−1, k ) 
   elseif left+1 = k 
     return A[q] 
   else
-    returnselect( A, q+1, r, k−(left+1) )
+    return select( A, q+1, r, k−(left+1) )
     
 randomized choosePivot ( A, p, r ): 
    Choose i ∈ [p..r], uniformly at random 
